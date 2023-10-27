@@ -1,7 +1,6 @@
 ﻿# web-project
 
-NoteTaking
-NoteTaking Application is used for taking the Notes 
+NoteTaking 
 
  E-R Diagram
 
