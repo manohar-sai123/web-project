@@ -11,3 +11,7 @@ NoteTaking Application is used for taking the Notes
 Relation
 
 ![Picture2](https://github.com/manohar-sai123/web-project/assets/149122833/49baa70e-6095-4fd5-b8bb-e0a643a456e7)
+
+MySQL Tables
+
+"C:\Users\manoh\OneDrive\Documents\sql table- notetaking.txt"
