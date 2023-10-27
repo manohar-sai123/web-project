@@ -14,8 +14,10 @@ Relation
 
 MySQL Tables
 
+![sql tables1](https://github.com/manohar-sai123/web-project/assets/149122833/c3a124a6-9f6b-448b-8e8f-22c9c69eafbd)
 
-![table](https://github.com/manohar-sai123/web-project/assets/149122833/dec4ad0a-09a9-4aad-b834-990eded43d63)
 
-![user table](https://github.com/manohar-sai123/web-project/assets/149122833/b75a87ad-8829-474d-8809-aba6c95c200b)
+![sql table](https://github.com/manohar-sai123/web-project/assets/149122833/f110e98b-3f1c-47dd-8b2e-9aa76a7688c1)
+
+
 
