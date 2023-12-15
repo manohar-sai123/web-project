@@ -5,6 +5,7 @@ async function createTable() {
     CREATE TABLE IF NOT EXISTS users (
       UserId INT NOT NULL AUTO_INCREMENT,
       UserName VARCHAR(25) NOT NULL,
+      Name VARCHAR(25) NOT NULL,
       Password VARCHAR(255) NOT NULL,
       Email VARCHAR(255) NOT NULL,
       CONSTRAINT UserPK PRIMARY KEY(UserId));`
@@ -13,17 +14,6 @@ async function createTable() {
 }
 
 createTable()
-
-// CRUD
-// Read - Login User 
-
-// Testing out login function
-// let newUser = {
-//   username: "cathy123",
-//   password: "icecream"
-// }
-
-// login(newUser);
 
 async function login(user) {
   let userResult = await getUser(user.username)
@@ -39,8 +29,8 @@ async function register(user) {
   if(userResult.length > 0) throw Error("Username already in use!!")
 
   let sql = `
-    INSERT INTO users(UserName, Password, Email)
-    VALUES("${user.username}", "${user.password}", "${user.email}")
+    INSERT INTO users(Name,UserName, Password, Email)
+    VALUES("${user.name}","${user.username}", "${user.password}", "${user.email}")
   `
 
   await con.query(sql)
