@@ -24,10 +24,26 @@ async function input(event) {
         console.log('data: ', data);
         if (data.success) {
             // fetchList()
+
+            // const listContainer = document.getElementById("notes-list")
+            // const ul = document.createElement("ul")
+            // ul.setAttribute("id","list-container")
             const ul = document.getElementById("list-container");
-            const li = document.createElement("li")
-            li.innerHTML = `${formData.title}-${formData.content}`
-            ul.appendChild(li)
+            if (ul) {
+
+                const li = document.createElement("li")
+                li.innerHTML = `${formData.title}-${formData.content}`
+                ul.appendChild(li)
+            } else {
+
+                const listContainer = document.getElementById("notes-list")
+                const ul = document.createElement("ul")
+                ul.setAttribute("id", "list-container")
+                const li = document.createElement("li")
+                li.innerHTML = `${formData.title}-${formData.content}`
+                ul.appendChild(li)
+                listContainer.appendChild(ul)
+            }
             document.getElementById("notesForm").reset()
 
             alert(`Note added successfully!`);
@@ -44,11 +60,13 @@ const fetchList = async () => {
     }
     const listContainer = document.getElementById("notes-list")
     const ul = document.createElement("ul")
-    ul.setAttribute("id","list-container")
-    await fetch("http://localhost:3000/notes/get-notes-by-userid/12", options).then(res => res.json()).then(data => {
+    ul.setAttribute("id", "list-container")
+    let user = JSON.parse(localStorage.getItem('user') ?? {})
+    await fetch(`http://localhost:3000/notes/get-notes-by-userid/${user?.UserId}`, options).then(res => res.json()).then(data => {
         if (data.length > 0) {
             data.map(listItem => {
                 console.log('listItem: ', listItem);
+
                 const li = document.createElement("li");
                 li.innerHTML = `${listItem.title}- ${listItem.content}`;
                 ul.appendChild(li)

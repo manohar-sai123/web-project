@@ -26,8 +26,10 @@ async function register(event) {
         if(data?.UserId){
             console.log('data: ', data);
             
+            document.getElementById("register-form").style.display = "none";
+            document.getElementById("success-msg").style.display = "block";
             document.getElementById('registerForm').reset();
-            window.location.href="./login.html"
+            // window.location.href="./login.html"
         }
      })
 
