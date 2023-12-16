@@ -59,6 +59,7 @@ body{
     align-items: center;
     position: absolute;
     display: flex;
+    flex-direction: column;
     left: 20%;
 }
 .input{
@@ -78,4 +79,13 @@ body{
     margin-bottom: 300px; */
     position: absolute;
     margin: 300px 300px;
+}
+#title {
+    /* padding: 2rem 1rem; */
+    width: 30%;
+    height: 10%;
+    font-size: xx-large;
+}
+.label{
+    font-size: x-large;
 }
