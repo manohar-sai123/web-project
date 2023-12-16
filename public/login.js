@@ -21,7 +21,11 @@ async function login(event) {
             window.location.href = "./notes.html"
             console.log('data: ', data);
             console.log('window.location: ', window.location.pathname.split("/"));
+        }else{
+            alert(`${data.message}`)
+
         }
+    
     })
 
     // console.log("FormData", formData);
