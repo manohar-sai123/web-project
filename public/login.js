@@ -1,12 +1,12 @@
-async function login (event) {
+async function login(event) {
     event.preventDefault();
-    
+
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
-    
-    let formData={
-    username, 
-    password,
+
+    let formData = {
+        username,
+        password,
     };
     const options = {
         method: "POST",
@@ -15,19 +15,22 @@ async function login (event) {
         },
         body: JSON.stringify(formData),
     }
-    await fetch("http://localhost:3000/users/login", options).then(res => res.json()).then(data => { console.log('data: ', data);
-    localStorage.setItem("user",JSON.stringify(data))
-    window.location.href="./notes.html"
-    console.log('window.location: ', window.location.pathname.split("/"));
- })
+    await fetch("http://localhost:3000/users/login", options).then(res => res.json()).then(data => {
+        if (data.message !== "Username not found!!"&& data.message!=="Password Incorrect!!") {
+            localStorage.setItem("user", JSON.stringify(data))
+            window.location.href = "./notes.html"
+            console.log('data: ', data);
+            console.log('window.location: ', window.location.pathname.split("/"));
+        }
+    })
 
-    console.log("FormData" , formData);
+    // console.log("FormData", formData);
 
 };
-document.addEventListener('DOMContentLoaded',function(){
-let loginform =document.getElementById('loginform');
+document.addEventListener('DOMContentLoaded', function () {
+    let loginform = document.getElementById('loginform');
 
-console.log("loginForm", loginform)
-loginform?.addEventListener('submit',login)
-    
+    console.log("loginForm", loginform)
+    loginform?.addEventListener('submit', login)
+
 });
